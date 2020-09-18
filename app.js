@@ -5,7 +5,7 @@ const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 // const uri = "mongodb+srv://sid123:123@cluster0.7avt2.mongodb.net/user?retryWrites=true&w=majority";
-
+const port = process.env.PORT || 4500;
 mongoose.connect(process.env.MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true})
     .then(() =>{
         console.log("MongoDB connected");
@@ -22,6 +22,6 @@ app.get('/',(req, res) =>{
     res.send("show me")
 })
 
-app.listen(3000, () =>{
+app.listen(port, () =>{
     console.log("server runnig");
 })
